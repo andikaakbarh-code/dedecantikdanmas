@@ -1,0 +1,604 @@
+/* =========================================
+   ANDIKA AKBAR & SILA VEBRIANTI
+   CUTE PIXEL PINK PASTEL
+   ========================================= */
+
+   :root {
+    --pink: #ef79ad;
+    --pink-dark: #bd4f87;
+    --pink-light: #ffe6f0;
+    --pink-pale: #fff5f9;
+    --purple: #9a6ca8;
+    --cream: #fffaf4;
+    --text: #633e5d;
+    --white: #ffffff;
+    --border: #e7a5c6;
+    --shadow: #e9b4ce;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+body {
+    margin: 0;
+    font-family: "Courier New", monospace;
+    background-color: var(--pink-pale);
+    background-image:
+        radial-gradient(#f6c7dc 1px, transparent 1px);
+    background-size: 18px 18px;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--purple);
+    outline-offset: 3px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* DEKORASI PIXEL */
+
+.pixel-sparkle {
+    position: fixed;
+    z-index: -1;
+    font-size: 30px;
+    color: var(--pink);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.sparkle-one {
+    top: 25%;
+    left: 2%;
+}
+
+.sparkle-two {
+    top: 60%;
+    right: 3%;
+}
+
+.sparkle-three {
+    bottom: 12%;
+    left: 4%;
+}
+
+/* NAVIGASI */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 6%;
+    background: #f9d5e6;
+    border-bottom: 4px solid var(--pink-dark);
+    box-shadow: 0 4px 0 var(--shadow);
+}
+
+.logo {
+    font-weight: bold;
+    color: var(--pink-dark);
+    font-size: 17px;
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.navbar nav a {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.navbar nav a:hover {
+    color: var(--pink-dark);
+}
+
+.nav-admin {
+    background: var(--pink-dark);
+    color: white;
+    border: 2px solid var(--text);
+    padding: 8px 12px;
+    box-shadow: 3px 3px 0 var(--text);
+}
+
+.nav-admin:active,
+.pixel-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--text);
+}
+
+/* BERANDA */
+
+.hero {
+    min-height: 500px;
+    margin: 28px auto;
+    width: 90%;
+    max-width: 1100px;
+    padding: 55px 20px;
+    text-align: center;
+    background:
+        linear-gradient(180deg, #f5c7e3, #fff0f6 65%, #f9d5e6);
+    border: 4px solid var(--pink-dark);
+    box-shadow: 8px 8px 0 var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-decoration {
+    font-size: 28px;
+    margin-bottom: 15px;
+    letter-spacing: 8px;
+}
+
+.eyebrow {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: var(--pink-dark);
+}
+
+.hero h1 {
+    max-width: 850px;
+    margin: 15px auto;
+    font-size: clamp(27px, 5vw, 54px);
+    line-height: 1.4;
+    color: var(--pink-dark);
+    text-shadow: 3px 3px 0 #f7bfd9;
+    overflow-wrap: anywhere;
+}
+
+.heart {
+    color: #e85b96;
+}
+
+.hero-text {
+    font-size: 15px;
+}
+
+.pixel-message {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 15px 0 25px;
+    padding: 10px 15px;
+    background: var(--white);
+    border: 3px dashed var(--border);
+    font-size: 12px;
+}
+
+.hero-bottom {
+    margin-top: 40px;
+    color: var(--pink-dark);
+    letter-spacing: 15px;
+}
+
+/* TOMBOL */
+
+.pixel-button {
+    display: inline-block;
+    padding: 12px 18px;
+    border: 3px solid var(--text);
+    background: var(--pink);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 4px 4px 0 var(--text);
+    transition: transform 0.1s;
+}
+
+.pixel-button:hover {
+    background: var(--pink-dark);
+}
+
+.full-width {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* GALERI */
+
+.section {
+    width: 90%;
+    max-width: 1100px;
+    margin: 75px auto;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.section-icon {
+    font-size: 40px;
+}
+
+.section-heading h2,
+.story-card h2 {
+    margin: 0;
+    font-size: clamp(22px, 4vw, 32px);
+    color: var(--pink-dark);
+}
+
+.section-heading p {
+    margin: 4px 0;
+    font-size: 13px;
+}
+
+.section-heading .eyebrow {
+    margin: 0 0 4px;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.filter {
+    padding: 8px 14px;
+    background: white;
+    border: 2px solid var(--border);
+    color: var(--pink-dark);
+}
+
+.filter.active,
+.filter:hover {
+    background: var(--pink);
+    color: white;
+}
+
+.status-text {
+    min-height: 20px;
+    overflow-wrap: anywhere;
+    font-size: 13px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.photo-card {
+    min-width: 0;
+    padding: 10px;
+    background: white;
+    border: 3px solid var(--border);
+    box-shadow: 4px 4px 0 var(--shadow);
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+.photo-card:hover {
+    transform: translateY(-4px);
+}
+
+.photo-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border: 2px solid var(--pink-light);
+    image-rendering: auto;
+}
+
+.photo-card h3 {
+    margin: 10px 0 4px;
+    font-size: 15px;
+    overflow-wrap: anywhere;
+}
+
+.photo-card p {
+    margin: 4px 0;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.photo-date {
+    color: var(--pink-dark);
+}
+
+.category-label {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 3px 7px;
+    background: var(--pink-light);
+    font-size: 11px;
+}
+
+/* CERITA KITA */
+
+.story-section {
+    width: 90%;
+    max-width: 850px;
+    margin: 75px auto;
+}
+
+.story-card {
+    padding: 35px 25px;
+    text-align: center;
+    background: #fff;
+    border: 4px dashed var(--border);
+    box-shadow: 7px 7px 0 var(--shadow);
+}
+
+.story-decoration {
+    font-size: 30px;
+}
+
+.story-card > p:not(.eyebrow) {
+    max-width: 600px;
+    margin: 20px auto;
+    font-size: 14px;
+}
+
+.pixel-signature {
+    color: var(--pink-dark);
+    font-weight: bold;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 30px 15px;
+    text-align: center;
+    background: #f9d5e6;
+    border-top: 4px solid var(--pink-dark);
+    font-size: 13px;
+}
+
+.footer-small {
+    font-size: 11px;
+}
+
+/* MODAL DAN FORM */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    background: rgba(64, 37, 61, 0.65);
+    overflow-y: auto;
+}
+
+.modal-card {
+    position: relative;
+    width: 100%;
+    max-width: 430px;
+    max-height: 90dvh;
+    overflow-y: auto;
+    padding: 28px 22px;
+    background: var(--pink-pale);
+    border: 4px solid var(--pink-dark);
+    box-shadow: 7px 7px 0 var(--text);
+    text-align: center;
+}
+
+.admin-card {
+    max-width: 500px;
+}
+
+.modal-icon {
+    font-size: 38px;
+}
+
+.modal-card h2 {
+    margin: 5px 0;
+    color: var(--pink-dark);
+}
+
+.modal-card > p {
+    font-size: 13px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    color: var(--pink-dark);
+    font-size: 30px;
+}
+
+.modal-card form {
+    text-align: left;
+}
+
+.modal-card label {
+    display: block;
+    margin: 14px 0 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.modal-card input,
+.modal-card textarea,
+.modal-card select {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 11px;
+    border: 2px solid var(--border);
+    background: white;
+    color: var(--text);
+    border-radius: 0;
+}
+
+.modal-card textarea {
+    resize: vertical;
+}
+
+.image-preview {
+    display: block;
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+    margin-top: 12px;
+    border: 3px solid var(--border);
+    background: white;
+}
+
+.secondary-button {
+    margin-top: 15px;
+    padding: 10px;
+    background: white;
+    color: var(--pink-dark);
+    border: 2px solid var(--border);
+}
+
+.photo-detail-card > img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: contain;
+    border: 3px solid var(--border);
+    background: white;
+}
+
+.delete-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: 2px solid #a52e50;
+    background: #ffe0e8;
+    color: #8e2342;
+}
+
+/* RESPONSIVE UNTUK HP */
+
+@media (max-width: 700px) {
+    .navbar {
+        padding: 12px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navbar nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .navbar nav a {
+        font-size: 12px;
+    }
+
+    .hero {
+        width: 92%;
+        min-height: 0;
+        padding: 40px 14px;
+        margin: 22px auto;
+        box-shadow: 5px 5px 0 var(--shadow);
+    }
+
+    .hero-text {
+        font-size: 13px;
+    }
+
+    .pixel-message {
+        gap: 5px;
+        padding: 8px;
+        font-size: 10px;
+    }
+
+    .section,
+    .story-section {
+        width: 92%;
+        margin: 50px auto;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .photo-card {
+        padding: 7px;
+        box-shadow: 3px 3px 0 var(--shadow);
+    }
+
+    .photo-card h3 {
+        font-size: 12px;
+    }
+
+    .photo-card p {
+        font-size: 10px;
+    }
+
+    .filters {
+        gap: 7px;
+    }
+
+    .filter {
+        padding: 7px 9px;
+        font-size: 11px;
+    }
+
+    .modal-card {
+        padding: 28px 16px 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar nav {
+        gap: 8px;
+    }
+
+    .navbar nav a,
+    .nav-admin {
+        font-size: 11px;
+    }
+}
