@@ -1,26 +1,33 @@
 ```css
 /* =========================================
-   ANDIKA AKBAR ♡ SILA VEBRIANTI
-   SOFT PINK & CREAM CUTE THEME
+   ANDIKA AKBAR & SILA VEBRIANTI
+   DEDE BOCIL VS MAS
+   CUTE PINK + CREAM
+   ========================================= */
+
+
+/* =========================================
+   ROOT
    ========================================= */
 
 :root {
-    --pink: #d98eaa;
-    --pink-dark: #a9637f;
-    --pink-soft: #efd0da;
-    --pink-pale: #f8e9ed;
+    --pink: #d982a8;
+    --pink-dark: #a95d80;
+    --pink-light: #f5dce6;
+    --pink-pale: #fff8f5;
 
-    --cream: #f8f1e7;
-    --cream-light: #fffaf3;
-    --cream-dark: #e8d9c8;
+    --cream: #fffaf4;
+    --cream-dark: #f2e6dc;
 
-    --brown: #70545a;
-    --brown-soft: #92777b;
+    --text: #5f4a52;
+    --text-light: #806c73;
 
-    --white: #fffdf9;
+    --white: #ffffff;
 
-    --border: #dfb8c5;
-    --shadow: rgba(150, 102, 119, 0.16);
+    --border: #dfb8c8;
+    --shadow: #ead4dc;
+
+    --purple: #9a748f;
 }
 
 
@@ -30,6 +37,8 @@
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
@@ -38,23 +47,22 @@ html {
 }
 
 body {
-    margin: 0;
+    min-height: 100vh;
+
     font-family: "Courier New", monospace;
 
-    background:
-        radial-gradient(
-            circle at 10% 10%,
-            rgba(217, 142, 170, 0.08) 0,
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 90% 80%,
-            rgba(232, 217, 200, 0.25) 0,
-            transparent 28%
-        ),
-        var(--cream);
+    background-color: var(--pink-pale);
 
-    color: var(--brown);
+    background-image:
+        radial-gradient(
+            #f0d9e2 1px,
+            transparent 1px
+        );
+
+    background-size: 18px 18px;
+
+    color: var(--text);
+
     line-height: 1.6;
 }
 
@@ -84,7 +92,7 @@ a:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-    outline: 3px solid var(--pink);
+    outline: 3px solid var(--purple);
     outline-offset: 3px;
 }
 
@@ -99,12 +107,14 @@ select:focus-visible {
 
 .pixel-sparkle {
     position: fixed;
+
     z-index: -1;
 
-    color: var(--pink);
-    opacity: 0.25;
+    font-size: 26px;
 
-    font-size: 25px;
+    color: var(--pink);
+
+    opacity: 0.35;
 
     pointer-events: none;
 }
@@ -131,47 +141,64 @@ select:focus-visible {
 
 .navbar {
     position: sticky;
+
     top: 0;
-    z-index: 20;
+
+    z-index: 100;
 
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
 
     gap: 20px;
 
+    width: 100%;
+
     padding: 14px 6%;
 
-    background: rgba(248, 241, 231, 0.96);
+    background: rgba(255, 245, 240, 0.96);
 
-    border-bottom: 2px solid var(--pink-soft);
+    border-bottom: 3px solid var(--border);
 
-    box-shadow:
-        0 4px 15px rgba(112, 84, 90, 0.06);
+    box-shadow: 0 3px 0 var(--shadow);
 }
 
 .logo {
+    flex-shrink: 0;
+
     font-weight: bold;
-    font-size: 16px;
 
     color: var(--pink-dark);
+
+    font-size: 17px;
+
+    white-space: nowrap;
 }
 
 .navbar nav {
     display: flex;
+
     align-items: center;
 
+    justify-content: flex-end;
+
     flex-wrap: wrap;
+
     gap: 18px;
 }
 
 .navbar nav a {
-    font-size: 12px;
+    font-size: 13px;
+
     font-weight: bold;
 
-    color: var(--brown-soft);
+    color: var(--text);
 
-    transition: color 0.2s ease;
+    white-space: nowrap;
+
+    transition: color 0.15s ease;
 }
 
 .navbar nav a:hover {
@@ -179,26 +206,28 @@ select:focus-visible {
 }
 
 .nav-admin {
-    padding: 8px 13px;
+    padding: 8px 12px;
 
-    background: var(--pink);
-    color: var(--white);
-
-    border: 2px solid var(--pink-dark);
-    border-radius: 8px;
-
-    box-shadow:
-        3px 3px 0 rgba(169, 99, 127, 0.18);
-
-    transition: transform 0.15s ease;
-}
-
-.nav-admin:hover {
     background: var(--pink-dark);
+
+    color: white;
+
+    border: 2px solid var(--text);
+
+    box-shadow: 3px 3px 0 var(--text);
+
+    white-space: nowrap;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
 }
 
-.nav-admin:active {
+.nav-admin:active,
+.pixel-button:active {
     transform: translate(2px, 2px);
+
+    box-shadow: 1px 1px 0 var(--text);
 }
 
 
@@ -208,152 +237,132 @@ select:focus-visible {
 
 .hero {
     position: relative;
-    overflow: hidden;
 
-    width: 90%;
-    max-width: 1100px;
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
 
     min-height: 500px;
 
-    margin: 35px auto;
+    width: 90%;
 
-    padding: 65px 25px;
+    max-width: 1100px;
+
+    margin: 28px auto;
+
+    padding: 55px 30px;
 
     text-align: center;
 
     background:
         linear-gradient(
-            145deg,
-            #efd6dc,
-            #f8eee6 55%,
-            #f3dce2
+            180deg,
+            #f3d8e3,
+            #fff8f5 65%,
+            #f7e7df
         );
 
-    border: 2px solid var(--border);
-    border-radius: 22px;
+    border: 3px solid var(--border);
 
-    box-shadow:
-        0 12px 35px var(--shadow);
-}
+    box-shadow: 7px 7px 0 var(--shadow);
 
-
-/* dekorasi lembut */
-
-.hero::before,
-.hero::after {
-    content: "";
-
-    position: absolute;
-
-    width: 140px;
-    height: 140px;
-
-    border-radius: 50%;
-
-    background: rgba(255, 253, 249, 0.35);
-
-    pointer-events: none;
-}
-
-.hero::before {
-    top: -70px;
-    left: -50px;
-}
-
-.hero::after {
-    bottom: -70px;
-    right: -50px;
+    overflow: hidden;
 }
 
 .hero-decoration {
-    position: relative;
-
     margin-bottom: 15px;
 
-    font-size: 25px;
-    letter-spacing: 8px;
+    font-size: 28px;
 
-    opacity: 0.8;
+    line-height: 1;
+
+    letter-spacing: 8px;
 }
 
 .eyebrow {
-    font-size: 11px;
+    margin: 0;
+
+    color: var(--pink-dark);
+
+    font-size: 12px;
+
     font-weight: bold;
 
     letter-spacing: 3px;
 
-    color: var(--pink-dark);
+    line-height: 1.5;
 }
 
 .hero h1 {
-    position: relative;
+    width: 100%;
 
     max-width: 850px;
 
     margin: 15px auto;
 
-    font-size: clamp(27px, 5vw, 54px);
-
-    line-height: 1.3;
-
     color: var(--pink-dark);
 
-    text-shadow:
-        2px 2px 0 rgba(255, 255, 255, 0.45);
+    font-size: clamp(27px, 5vw, 54px);
+
+    line-height: 1.25;
+
+    text-shadow: 2px 2px 0 #f0d2dd;
 
     overflow-wrap: anywhere;
 }
 
 .heart {
-    color: #c97898;
+    color: #c86f96;
 }
 
 .hero-text {
-    position: relative;
+    margin: 0;
 
-    max-width: 600px;
+    color: var(--text-light);
 
-    margin: 0 auto;
+    font-size: 15px;
 
-    font-size: 14px;
-
-    color: var(--brown-soft);
+    line-height: 1.6;
 }
 
 .pixel-message {
-    position: relative;
-
     display: inline-flex;
 
-    justify-content: center;
     align-items: center;
+
+    justify-content: center;
 
     gap: 12px;
 
-    margin: 22px 0 28px;
+    margin: 15px 0 25px;
 
-    padding: 11px 17px;
+    padding: 10px 15px;
 
-    background: rgba(255, 253, 249, 0.75);
+    background: var(--cream);
 
     border: 2px dashed var(--border);
 
-    border-radius: 12px;
-
     font-size: 12px;
 
-    box-shadow:
-        0 5px 15px rgba(112, 84, 90, 0.05);
+    line-height: 1.4;
+}
+
+.pixel-message p {
+    margin: 0;
 }
 
 .hero-bottom {
-    position: relative;
-
     margin-top: 40px;
 
-    color: var(--pink);
+    color: var(--pink-dark);
 
-    letter-spacing: 12px;
+    letter-spacing: 15px;
+
+    line-height: 1;
 }
 
 
@@ -364,31 +373,30 @@ select:focus-visible {
 .pixel-button {
     display: inline-block;
 
-    padding: 11px 18px;
+    padding: 12px 18px;
 
     background: var(--pink);
 
-    color: var(--white);
+    color: white;
+
+    border: 2px solid var(--text);
+
+    box-shadow: 4px 4px 0 var(--text);
 
     font-weight: bold;
 
-    border: 2px solid var(--pink-dark);
-    border-radius: 9px;
+    line-height: 1.4;
 
-    box-shadow:
-        4px 4px 0 rgba(169, 99, 127, 0.18);
+    text-align: center;
 
     transition:
+        background 0.15s ease,
         transform 0.15s ease,
-        background 0.15s ease;
+        box-shadow 0.15s ease;
 }
 
 .pixel-button:hover {
     background: var(--pink-dark);
-}
-
-.pixel-button:active {
-    transform: translate(2px, 2px);
 }
 
 .full-width {
@@ -406,45 +414,52 @@ select:focus-visible {
 
 .section {
     width: 90%;
+
     max-width: 1100px;
 
-    margin: 80px auto;
+    margin: 75px auto;
 }
+
+
+/* =========================================
+   SECTION HEADING
+   ========================================= */
 
 .section-heading {
     display: flex;
+
     align-items: center;
 
-    gap: 16px;
+    gap: 18px;
 
-    margin-bottom: 28px;
+    width: 100%;
+
+    margin-bottom: 25px;
 }
 
 .section-icon {
-    display: flex;
+    flex: 0 0 auto;
 
-    justify-content: center;
-    align-items: center;
+    font-size: 40px;
 
-    width: 55px;
-    height: 55px;
+    line-height: 1;
+}
 
-    background: var(--pink-pale);
+.section-heading > div {
+    min-width: 0;
 
-    border: 2px solid var(--border);
-
-    border-radius: 50%;
-
-    font-size: 28px;
+    flex: 1;
 }
 
 .section-heading h2,
 .story-card h2 {
     margin: 0;
 
+    color: var(--pink-dark);
+
     font-size: clamp(22px, 4vw, 32px);
 
-    color: var(--pink-dark);
+    line-height: 1.3;
 }
 
 .section-heading p {
@@ -452,7 +467,7 @@ select:focus-visible {
 
     font-size: 13px;
 
-    color: var(--brown-soft);
+    line-height: 1.5;
 }
 
 .section-heading .eyebrow {
@@ -467,48 +482,62 @@ select:focus-visible {
 .filters {
     display: flex;
 
+    align-items: center;
+
     flex-wrap: wrap;
 
-    gap: 8px;
+    gap: 10px;
 
-    margin: 20px 0 25px;
+    width: 100%;
+
+    margin: 20px 0;
 }
 
 .filter {
-    padding: 8px 13px;
+    padding: 8px 14px;
 
-    background: var(--cream-light);
+    background: var(--cream);
 
     color: var(--pink-dark);
 
     border: 2px solid var(--border);
 
-    border-radius: 8px;
+    font-size: 13px;
+
+    line-height: 1.4;
 
     transition:
-        background 0.2s ease,
-        color 0.2s ease;
+        background 0.15s ease,
+        color 0.15s ease;
 }
 
 .filter.active,
 .filter:hover {
     background: var(--pink);
-    color: var(--white);
-}
 
-.status-text {
-    min-height: 20px;
-
-    overflow-wrap: anywhere;
-
-    font-size: 12px;
-
-    color: var(--brown-soft);
+    color: white;
 }
 
 
 /* =========================================
-   GALLERY
+   STATUS
+   ========================================= */
+
+.status-text {
+    min-height: 20px;
+
+    margin: 0 0 15px;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   GALERI
    ========================================= */
 
 .gallery {
@@ -517,7 +546,11 @@ select:focus-visible {
     grid-template-columns:
         repeat(3, minmax(0, 1fr));
 
+    align-items: stretch;
+
     gap: 24px;
+
+    width: 100%;
 }
 
 
@@ -526,18 +559,21 @@ select:focus-visible {
    ========================================= */
 
 .memory-card {
+    display: flex;
+
+    flex-direction: column;
+
     min-width: 0;
+
+    height: 100%;
 
     padding: 10px;
 
-    background: var(--cream-light);
+    background: var(--white);
 
     border: 2px solid var(--border);
 
-    border-radius: 14px;
-
-    box-shadow:
-        0 7px 20px rgba(112, 84, 90, 0.08);
+    box-shadow: 5px 5px 0 var(--shadow);
 
     cursor: pointer;
 
@@ -551,19 +587,22 @@ select:focus-visible {
 .memory-card:hover {
     transform: translateY(-5px);
 
-    box-shadow:
-        0 12px 25px rgba(112, 84, 90, 0.13);
+    box-shadow: 7px 7px 0 var(--shadow);
 }
 
 
-/* FOTO */
+/* =========================================
+   FOTO
+   ========================================= */
 
 .memory-card > img {
     display: block;
 
+    flex-shrink: 0;
+
     width: 100%;
 
-    height: 260px;
+    height: 280px;
 
     object-fit: cover;
 
@@ -571,9 +610,7 @@ select:focus-visible {
 
     background: var(--pink-pale);
 
-    border-radius: 9px;
-
-    border: 2px solid var(--pink-soft);
+    border: 2px solid var(--pink-light);
 }
 
 
@@ -582,66 +619,136 @@ select:focus-visible {
    ========================================= */
 
 .memory-info {
-    padding: 10px 4px 4px;
-}
+    display: flex;
 
-.memory-category {
-    display: inline-block;
+    flex-direction: column;
 
-    margin: 2px 0 6px;
+    align-items: flex-start;
 
-    padding: 3px 8px;
+    flex: 1;
 
-    background: var(--pink-pale);
+    width: 100%;
 
-    color: var(--pink-dark);
-
-    border-radius: 6px;
-
-    font-size: 10px;
-}
-
-.memory-info h3 {
-    margin: 5px 0 4px;
-
-    font-size: 15px;
-
-    color: var(--brown);
-
-    overflow-wrap: anywhere;
-}
-
-.memory-date {
-    margin: 4px 0;
-
-    color: var(--brown-soft);
-
-    font-size: 11px;
+    padding: 14px 6px 6px;
 }
 
 
 /* =========================================
-   KATA-KATA DI BAWAH FOTO
+   KATEGORI
    ========================================= */
 
-.memory-note {
-    margin: 12px 0 3px;
+.memory-category {
+    display: inline-block;
 
-    padding: 11px 12px;
+    width: fit-content;
 
-    background: var(--pink-pale);
+    margin: 0 0 8px;
 
-    border-left: 3px solid var(--pink);
+    padding: 3px 8px;
 
-    border-radius: 7px;
+    background: var(--pink-light);
 
-    color: var(--brown-soft);
+    color: var(--pink-dark);
+
+    border-radius: 3px;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================
+   JUDUL FOTO
+   ========================================= */
+
+.memory-info h3 {
+    display: flex;
+
+    align-items: flex-start;
+
+    width: 100%;
+
+    min-height: 45px;
+
+    margin: 2px 0 6px;
+
+    color: var(--text);
+
+    font-size: 16px;
+
+    line-height: 1.4;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   TANGGAL
+   ========================================= */
+
+.memory-date {
+    width: 100%;
+
+    min-height: 18px;
+
+    margin: 0;
+
+    color: var(--text-light);
 
     font-size: 11px;
 
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   PESAN HANGAT
+   ========================================= */
+
+.memory-note {
+    width: 100%;
+
+    max-height: 0;
+
+    margin: 0;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    color: var(--text-light);
+
+    font-size: 12px;
+
     line-height: 1.7;
 
-    font-style: italic;
+    text-align: left;
+
+    border-top: 0 solid var(--pink-light);
+
+    transition:
+        max-height 0.35s ease,
+        opacity 0.3s ease,
+        margin 0.3s ease,
+        padding 0.3s ease,
+        border 0.3s ease;
+}
+
+.memory-card.show-note .memory-note {
+    max-height: 150px;
+
+    margin-top: 12px;
+
+    padding-top: 10px;
+
+    opacity: 1;
+
+    border-top: 1px dashed var(--border);
 }
 
 
@@ -651,51 +758,58 @@ select:focus-visible {
 
 .story-section {
     width: 90%;
+
     max-width: 850px;
 
-    margin: 80px auto;
+    margin: 75px auto;
 }
 
 .story-card {
-    padding: 40px 28px;
+    width: 100%;
+
+    padding: 35px 25px;
+
+    background: var(--cream);
+
+    border: 3px dashed var(--border);
+
+    box-shadow: 6px 6px 0 var(--shadow);
 
     text-align: center;
-
-    background:
-        linear-gradient(
-            145deg,
-            var(--cream-light),
-            var(--pink-pale)
-        );
-
-    border: 2px dashed var(--border);
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 10px 30px rgba(112, 84, 90, 0.07);
 }
 
 .story-decoration {
-    font-size: 27px;
+    margin-bottom: 8px;
 
-    opacity: 0.8;
+    font-size: 30px;
+
+    line-height: 1.2;
 }
 
-.story-card > p:not(.eyebrow) {
+.story-card h2 {
+    margin-top: 5px;
+}
+
+.story-card > p:not(.eyebrow):not(.pixel-signature) {
+    width: 100%;
+
     max-width: 600px;
 
     margin: 20px auto;
 
-    font-size: 13px;
+    font-size: 14px;
 
-    color: var(--brown-soft);
+    line-height: 1.8;
 }
 
 .pixel-signature {
-    color: var(--pink-dark) !important;
+    margin: 20px 0 0;
+
+    color: var(--pink-dark);
 
     font-weight: bold;
+
+    line-height: 1.5;
 }
 
 
@@ -704,21 +818,29 @@ select:focus-visible {
    ========================================= */
 
 footer {
-    padding: 32px 15px;
+    width: 100%;
+
+    padding: 30px 15px;
+
+    background: #f7e5df;
+
+    border-top: 3px solid var(--border);
 
     text-align: center;
 
-    background: #f0e2d6;
+    font-size: 13px;
 
-    border-top: 2px solid var(--border);
+    line-height: 1.6;
+}
 
-    color: var(--brown-soft);
-
-    font-size: 12px;
+footer p {
+    margin: 0;
 }
 
 .footer-small {
-    font-size: 10px;
+    margin-top: 5px !important;
+
+    font-size: 11px;
 }
 
 
@@ -731,16 +853,21 @@ footer {
 
     inset: 0;
 
-    z-index: 50;
+    z-index: 200;
 
     display: flex;
 
-    justify-content: center;
     align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    height: 100%;
 
     padding: 16px;
 
-    background: rgba(77, 56, 60, 0.55);
+    background: rgba(70, 48, 55, 0.65);
 
     overflow-y: auto;
 }
@@ -754,20 +881,17 @@ footer {
 
     max-height: 90dvh;
 
-    overflow-y: auto;
-
     padding: 28px 22px;
 
-    background: var(--cream-light);
+    background: var(--pink-pale);
 
-    border: 2px solid var(--border);
+    border: 3px solid var(--pink-dark);
 
-    border-radius: 15px;
-
-    box-shadow:
-        0 15px 40px rgba(65, 43, 49, 0.18);
+    box-shadow: 7px 7px 0 var(--text);
 
     text-align: center;
+
+    overflow-y: auto;
 }
 
 .admin-card {
@@ -775,37 +899,54 @@ footer {
 }
 
 .modal-icon {
-    font-size: 35px;
+    margin-bottom: 5px;
+
+    font-size: 38px;
+
+    line-height: 1.2;
 }
 
 .modal-card h2 {
     margin: 5px 0;
 
     color: var(--pink-dark);
+
+    line-height: 1.3;
 }
 
 .modal-card > p {
-    font-size: 12px;
+    font-size: 13px;
 
-    color: var(--brown-soft);
+    line-height: 1.6;
 }
 
 .modal-close {
     position: absolute;
 
     top: 8px;
+
     right: 12px;
 
-    border: none;
+    width: 35px;
+
+    height: 35px;
+
+    padding: 0;
 
     background: transparent;
 
     color: var(--pink-dark);
 
-    font-size: 28px;
+    border: none;
+
+    font-size: 30px;
+
+    line-height: 1;
 }
 
 .modal-card form {
+    width: 100%;
+
     text-align: left;
 }
 
@@ -814,9 +955,11 @@ footer {
 
     margin: 14px 0 5px;
 
-    font-size: 11px;
+    font-size: 12px;
 
     font-weight: bold;
+
+    line-height: 1.4;
 }
 
 .modal-card input,
@@ -828,20 +971,35 @@ footer {
 
     min-width: 0;
 
-    padding: 10px 11px;
+    padding: 11px;
 
-    background: var(--white);
+    background: white;
 
-    color: var(--brown);
+    color: var(--text);
 
     border: 2px solid var(--border);
 
-    border-radius: 7px;
+    border-radius: 0;
+
+    outline: none;
+}
+
+.modal-card input:focus,
+.modal-card textarea:focus,
+.modal-card select:focus {
+    border-color: var(--pink-dark);
 }
 
 .modal-card textarea {
+    min-height: 90px;
+
     resize: vertical;
 }
+
+
+/* =========================================
+   IMAGE PREVIEW
+   ========================================= */
 
 .image-preview {
     display: block;
@@ -850,198 +1008,376 @@ footer {
 
     max-height: 220px;
 
-    object-fit: contain;
-
     margin-top: 12px;
 
-    background: var(--white);
+    object-fit: contain;
 
-    border: 2px solid var(--border);
+    background: white;
 
-    border-radius: 8px;
+    border: 3px solid var(--border);
 }
 
+
+/* =========================================
+   SECONDARY BUTTON
+   ========================================= */
+
 .secondary-button {
+    width: 100%;
+
     margin-top: 15px;
 
     padding: 10px;
 
-    background: var(--cream-light);
+    background: white;
 
     color: var(--pink-dark);
 
     border: 2px solid var(--border);
 
-    border-radius: 7px;
+    line-height: 1.4;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+.secondary-button:hover {
+    background: var(--pink-light);
+}
+
+
+/* =========================================
+   DETAIL FOTO
+   ========================================= */
+
+.photo-detail-card {
+    max-width: 600px;
 }
 
 .photo-detail-card > img {
+    display: block;
+
     width: 100%;
 
     max-height: 350px;
+
+    margin: 0 auto 18px;
 
     object-fit: contain;
 
     background: var(--white);
 
-    border: 2px solid var(--border);
-
-    border-radius: 9px;
+    border: 3px solid var(--border);
 }
 
-.delete-button {
-    width: 100%;
+.photo-detail-card h2 {
+    margin: 5px 0 8px;
 
-    padding: 10px;
+    line-height: 1.4;
 
-    margin-top: 15px;
+    overflow-wrap: anywhere;
+}
 
-    border: 2px solid #b56d7d;
+.photo-detail-card .photo-date {
+    margin: 0 0 10px;
 
-    border-radius: 7px;
+    color: var(--text-light);
 
-    background: #f5dfe2;
+    font-size: 12px;
+}
 
-    color: #8e4f61;
+.photo-detail-card #detail-caption {
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    overflow-wrap: anywhere;
 }
 
 
 /* =========================================
-   RESPONSIVE
+   DELETE BUTTON
    ========================================= */
 
-@media (max-width: 700px) {
+.delete-button {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 10px;
+
+    background: #fff;
+
+    color: #a44;
+
+    border: 2px solid #d99;
+
+    font-weight: bold;
+
+    line-height: 1.4;
+}
+
+.delete-button:hover {
+    background: #fbeaea;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
 
     .navbar {
-        padding: 12px;
-
-        flex-direction: column;
-
-        gap: 10px;
+        padding: 14px 4%;
     }
 
     .navbar nav {
-        justify-content: center;
-
-        gap: 10px;
-    }
-
-    .navbar nav a {
-        font-size: 11px;
-    }
-
-    .hero {
-        width: 92%;
-
-        min-height: 0;
-
-        margin: 22px auto;
-
-        padding: 45px 15px;
-
-        border-radius: 16px;
-    }
-
-    .hero-text {
-        font-size: 12px;
-    }
-
-    .pixel-message {
-        gap: 6px;
-
-        padding: 8px 10px;
-
-        font-size: 10px;
-    }
-
-    .section,
-    .story-section {
-        width: 92%;
-
-        margin: 55px auto;
-    }
-
-    .section-heading {
-        gap: 10px;
-    }
-
-    .section-icon {
-        width: 45px;
-        height: 45px;
-
-        font-size: 22px;
+        gap: 12px;
     }
 
     .gallery {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
 
-        gap: 13px;
-    }
-
-    .memory-card {
-        padding: 7px;
-
-        border-radius: 11px;
+        gap: 20px;
     }
 
     .memory-card > img {
-        height: 190px;
-
-        border-radius: 7px;
-    }
-
-    .memory-info {
-        padding: 7px 2px 2px;
-    }
-
-    .memory-info h3 {
-        font-size: 12px;
-    }
-
-    .memory-category {
-        font-size: 9px;
-    }
-
-    .memory-date {
-        font-size: 9px;
-    }
-
-    .memory-note {
-        padding: 9px;
-
-        font-size: 10px;
-    }
-
-    .filter {
-        padding: 7px 9px;
-
-        font-size: 10px;
-    }
-
-    .modal-card {
-        padding: 28px 16px 20px;
+        height: 260px;
     }
 }
 
 
-@media (max-width: 360px) {
+/* =========================================
+   MOBILE
+   ========================================= */
 
-    .gallery {
-        grid-template-columns: 1fr;
+@media (max-width: 650px) {
+
+    html {
+        scroll-padding-top: 120px;
     }
 
-    .memory-card > img {
-        height: 250px;
+
+    /* NAVBAR */
+
+    .navbar {
+        position: sticky;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 10px;
+
+        padding: 12px 15px;
+    }
+
+    .logo {
+        font-size: 16px;
     }
 
     .navbar nav {
-        gap: 7px;
+        justify-content: center;
+
+        width: 100%;
+
+        gap: 8px 12px;
+    }
+
+    .navbar nav a,
+    .nav-admin {
+        font-size: 11px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        width: 92%;
+
+        min-height: 460px;
+
+        margin: 20px auto;
+
+        padding: 45px 18px;
+    }
+
+    .hero-decoration {
+        font-size: 23px;
+
+        letter-spacing: 5px;
+    }
+
+    .hero h1 {
+        font-size: clamp(25px, 9vw, 40px);
+
+        line-height: 1.3;
+    }
+
+    .hero-text {
+        font-size: 13px;
+    }
+
+    .pixel-message {
+        max-width: 100%;
+
+        gap: 8px;
+
+        padding: 9px 10px;
+
+        font-size: 10px;
+    }
+
+    .pixel-button {
+        max-width: 100%;
+
+        padding: 11px 14px;
+
+        font-size: 12px;
+    }
+
+    .hero-bottom {
+        margin-top: 30px;
+
+        letter-spacing: 8px;
+    }
+
+
+    /* SECTION */
+
+    .section {
+        width: 92%;
+
+        margin: 55px auto;
+    }
+
+
+    /* HEADING */
+
+    .section-heading {
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+    .section-icon {
+        font-size: 30px;
+    }
+
+    .section-heading h2 {
+        font-size: 23px;
+    }
+
+    .section-heading p {
+        font-size: 11px;
+    }
+
+
+    /* FILTER */
+
+    .filters {
+        justify-content: center;
+
+        gap: 8px;
+    }
+
+    .filter {
+        padding: 7px 10px;
+
+        font-size: 11px;
+    }
+
+
+    /* GALERI */
+
+    .gallery {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .memory-card > img {
+        height: 300px;
+    }
+
+
+    /* CERITA */
+
+    .story-section {
+        width: 92%;
+
+        margin: 55px auto;
+    }
+
+    .story-card {
+        padding: 30px 18px;
+    }
+
+    .story-card h2 {
+        font-size: 24px;
+    }
+
+    .story-card > p:not(.eyebrow):not(.pixel-signature) {
+        font-size: 13px;
+
+        line-height: 1.7;
+    }
+
+
+    /* MODAL */
+
+    .modal {
+        align-items: flex-start;
+
+        padding: 20px 12px;
+    }
+
+    .modal-card {
+        max-height: 92dvh;
+
+        padding: 25px 17px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 400px) {
+
+    .navbar nav {
+        gap: 7px 9px;
     }
 
     .navbar nav a,
     .nav-admin {
         font-size: 10px;
+    }
+
+    .hero {
+        padding: 40px 14px;
+    }
+
+    .hero h1 {
+        font-size: 25px;
+    }
+
+    .memory-card > img {
+        height: 260px;
+    }
+
+    .section-heading h2 {
+        font-size: 21px;
     }
 }
 ```
